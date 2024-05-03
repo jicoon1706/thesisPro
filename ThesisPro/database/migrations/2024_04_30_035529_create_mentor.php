@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_mentor', function (Blueprint $table) {
+        Schema::create('mentor', function (Blueprint $table) {
             $table->id('MentorID');
-            $table->string('Name');
             $table->string('EducationLevel');
+            $table->string('name');
             $table->string('position');
-            $table->string('experience');
+            $table->text('experience');
             $table->integer('PhoneNumber');
-            $table->string('username');
+            $table->string('Username');//foreign key for username
+            $table->foreign('username')->references('username')->on('UserProfile')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_mentor');
+        Schema::dropIfExists('mentor');
     }
 };
