@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class Publication extends Controller
 {
-    //TEST 1
+    public function index()
+    {
+        return view('publication');
+    }
 }
