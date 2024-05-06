@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_user_profile', function (Blueprint $table) {
+        Schema::create('user_profile', function (Blueprint $table) {
             $table->id('username');
             $table->string('password');
-            $table->string('Role');
-            $table->string('Name');
+            $table->string('role');
             $table->string('email');
             $table->timestamps();
         });
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_user_profile');
+        Schema::dropIfExists('user_profile');
     }
 };
